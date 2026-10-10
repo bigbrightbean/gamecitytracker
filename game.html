@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>City Track</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===================================================== -->
+  <!-- 🟩 HEADER -->
+  <!-- ===================================================== -->
+  <header>
+    <h1>🏙️ City Track</h1>
+    <div class="button-row">
+      <button id="shuffleBtn">Shuffle</button>
+      <button id="prevWordBtn">← Previous</button>
+      <button id="nextWordBtn">Next →</button>
+      <button id="mainMenuBtn">Back to Main Menu</button>
+      <button id="shuffleTrackBtn">🔄 Shuffle Track</button>
+      <button id="shortTrackBtn">🚕 Short Track</button>
+    </div>
+  </header>
+
+  <div id="game-container">
+
+    <!-- ===================================================== -->
+    <!-- ⭐ PHONICS ENGINE (same as Sea Blast) -->
+    <!-- ===================================================== -->
+    <div id="left-panel">
+      <img id="image" src="" alt="word image" />
+      <div id="letters"></div>
+      <button id="blendBtn" disabled>Blend</button>
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- 🏙️ CITY TRACK ENGINE -->
+    <!-- ===================================================== -->
+    <div id="right-panel">
+
+      <div id="diceRow">
+        <div id="turnBadge"><span id="turnEmoji">🦁</span><span id="turnText">'s turn</span></div>
+        <div id="dice" class="dice off"></div>
+        <div id="legend">
+          <div>🎈 +1</div>
+          <div>🚀 +3</div>
+          <div>🌪️ +1…+4</div>
+          <div>🛣️ +2/+3/+5</div>
+          <div>🚦 −2…+4</div>
+        </div>
+        <button id="endGameBtn" title="End the race now">END<br>GAME</button>
+      </div>
+
+      <div id="racetrack"></div>
+    </div>
+  </div>
+
+  <!-- 🎲 BIG DICE STAGE (3x dice while rolling) -->
+  <div id="diceStage">
+    <div id="bigWrap">
+      <div id="bigDice" class="dice big"></div>
+      <div id="rollLabel"></div>
+    </div>
+  </div>
+
+  <!-- 👥 Player selection popup -->
+  <div id="playerPopup" class="popup">
+    <div class="popup-content">
+      <h2>Select Players</h2>
+      <div id="playerCountBtns"></div>
+      <div id="animalChoices"></div>
+      <button id="startRaceBtn" disabled>Start Race</button>
+    </div>
+  </div>
+
+  <!-- 🔊 Dice sound -->
+  <audio id="diceSound" src="dice-roll.mp3" preload="auto"></audio>
+
+  <script src="game.js"></script>
+</body>
+</html>

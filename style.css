@@ -1,0 +1,1406 @@
+/* 🌟 General Layout */
+body {
+  background-color: #f9f9f9;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* 🧱 Header */
+header {
+  background-color: #fff;
+  padding: 6px 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+h1 {
+  font-size: 2em;
+  color: #222;
+  text-shadow: 1px 1px #ccc;
+  margin: 3px 0;
+}
+.button-row {
+  margin-top: 5px;
+}
+.button-row button {
+  background-color: #3ecf5b;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  padding: 12px 22px;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin: 5px;
+  cursor: pointer;
+  box-shadow: 0 5px #2fa04a;
+  transition: transform 0.15s;
+}
+.button-row button:hover { transform: scale(1.08); }
+
+
+/* 🧩 Game Layout */
+#game-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  margin: 10px;
+  flex-wrap: nowrap;
+}
+
+/* ===================================================== */
+/* ⭐⭐⭐⭐⭐ PHONICS ENGINE — COPY AND PASTE THIS PART ⭐⭐⭐⭐⭐ */
+/* ===================================================== */
+/* ===================================================== */
+/* ⭐ PHONICS ENGINE (SPINWHEEL VERSION) */
+/* ===================================================== */
+
+#left-panel{
+width:40%;
+text-align:center;
+}
+
+/* 🖼 IMAGE */
+#image{
+width:90%;
+max-width:480px;
+border-radius:15px;
+margin-top:5px;
+transition:transform 0.3s ease;
+}
+
+/* 🔤 LETTER CONTAINER */
+#letters{
+display:flex;
+justify-content:center;
+align-items:center;
+gap:12px;
+margin:20px 0;
+}
+
+/* 🔤 LETTER BUTTON */
+.letter-btn{
+
+aspect-ratio:1/1;
+flex:1 1 0;
+
+min-width:60px;
+max-width:130px;
+
+font-size:5rem;
+font-weight:bold;
+
+background:linear-gradient(145deg,#0a84ff,#0066cc);
+color:white;
+
+border-radius:25px;
+border:4px solid white;
+
+cursor:pointer;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+box-shadow:
+6px 6px 12px rgba(0,0,0,0.25),
+-4px -4px 10px rgba(255,255,255,0.6),
+inset -4px -4px 8px rgba(0,0,0,0.25),
+inset 4px 4px 8px rgba(255,255,255,0.7);
+
+transition:all 0.15s ease;
+
+animation:bounceVibrateGroup 0.8s infinite;
+}
+
+/* 🔘 PRESS */
+.letter-btn:active{
+transform:scale(0.92);
+box-shadow:
+inset 6px 6px 12px rgba(0,0,0,0.35),
+inset -4px -4px 10px rgba(255,255,255,0.6);
+}
+
+/* 🟠 SELECTED */
+.letter-btn.selected{
+background:linear-gradient(145deg,#ffb347,#ff7f24);
+animation:none;
+}
+
+/* 🟡 BLENDED */
+.letter-btn.blended{
+background:linear-gradient(145deg,#ffe066,#ffcc00);
+color:black;
+animation:blendBounce 0.6s 3;
+}
+
+/* ✨ IDLE BOUNCE */
+@keyframes bounceVibrateGroup{
+0%,100%{transform:scale(1);}
+50%{transform:scale(1.05);}
+}
+
+/* ✨ BLEND POP */
+@keyframes blendBounce{
+0%{transform:scale(1)}
+50%{transform:scale(1.18)}
+100%{transform:scale(1)}
+}
+
+/* 🟢 BLEND BUTTON */
+#blendBtn{
+
+width:500px;
+
+font-size:2em;
+font-weight:bold;
+
+padding:20px 0;
+
+margin:10px auto;
+
+border-radius:25px;
+border:4px solid white;
+
+background:linear-gradient(145deg,#3ecf5b,#2fa04a);
+color:white;
+
+cursor:pointer;
+
+box-shadow:
+6px 6px 12px rgba(0,0,0,0.3),
+-4px -4px 10px rgba(255,255,255,0.7),
+inset -3px -3px 6px rgba(0,0,0,0.25),
+inset 3px 3px 6px rgba(255,255,255,0.8);
+
+transition:all 0.2s ease;
+}
+
+/* 🔥 READY STATE */
+#blendBtn.ready{
+animation:blendPulse 1s infinite;
+}
+
+@keyframes blendPulse{
+0%{transform:scale(1)}
+50%{transform:scale(1.1)}
+100%{transform:scale(1)}
+}
+
+/* ===================================================== */
+/* ⭐ END PHONICS ENGINE (SPINWHEEL VERSION) */
+/* ===================================================== */
+
+/* ===================================================== */
+/* ⭐⭐⭐⭐⭐ END PHONICS ENGINE — COPY AND PASTE THIS PART ⭐⭐⭐⭐⭐ */
+/* ===================================================== */
+
+
+
+/* ===================================================== */
+/* 🏙️ CITY TRACK ENGINE START */
+/* ===================================================== */
+
+body{
+background:linear-gradient(180deg,#fff8e6,#eaf6ff);
+}
+
+#right-panel{
+width:60%;
+position:relative;
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+
+/* ===================== */
+/* 🎲 DICE ROW */
+/* ===================== */
+
+#diceRow{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:18px;
+position:sticky;
+top:10px;
+z-index:40;
+}
+
+#turnBadge{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+min-width:380px;
+box-sizing:border-box;
+background:white;
+border:4px solid #ffc312;
+border-radius:20px;
+padding:10px 24px;
+font-size:39px;
+font-weight:bold;
+color:#2f3542;
+box-shadow:0 0 0 3px #ff7f11 inset, 0 6px 16px rgba(255,195,18,0.3);
+}
+
+#turnEmoji{
+font-size:78px;
+line-height:1;
+}
+
+/* 🎈 🚀 🌪️ 🛣️ 🔀 guide */
+#legend{
+background:white;
+border:4px solid #ffc312;
+border-radius:16px;
+padding:6px 14px;
+font-size:21px;
+font-weight:bold;
+line-height:1.35;
+color:#2f3542;
+text-align:left;
+white-space:nowrap;
+box-shadow:0 0 0 3px #ff7f11 inset;
+}
+
+/* 🛑 END GAME (green) */
+#endGameBtn{
+width:80px;
+height:80px;
+border-radius:18px;
+border:4px solid white;
+background:linear-gradient(145deg,#3ecf5b,#2fa04a);
+color:white;
+font-family:inherit;
+font-size:16px;
+font-weight:bold;
+line-height:1.15;
+cursor:pointer;
+box-shadow:
+6px 6px 12px rgba(0,0,0,0.3),
+inset -3px -3px 6px rgba(0,0,0,0.25),
+inset 3px 3px 6px rgba(255,255,255,0.8);
+transition:transform 0.15s;
+}
+
+#endGameBtn:hover{ transform:scale(1.08); }
+#endGameBtn:active{ transform:scale(0.92); }
+
+
+/* ===================================================== */
+/* 🎲 NEON DICE — dark glass with glowing dots */
+/* ===================================================== */
+
+.dice{
+--sign:#1e8f4e;
+font-size:10px;
+width:13em;
+height:13em;
+padding:1.7em;
+gap:0.6em;
+box-sizing:border-box;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+grid-template-rows:repeat(3,1fr);
+background:var(--sign);                 /* solid road-sign colour */
+border-radius:2em;
+border:0.5em solid #2f3542;
+box-shadow:inset 0 0 0 0.45em #ffffff, 0 0.8em 1.6em rgba(0,0,0,0.3);   /* white sign edge */
+user-select:none;
+cursor:default;
+transition:opacity 0.3s, filter 0.3s;
+}
+
+.pip{ border-radius:50%; }
+
+.pip.on{
+background:#ffffff;
+box-shadow:inset 0 -0.18em 0 rgba(0,0,0,0.15);
+}
+
+.dice.off{
+opacity:0.45;
+filter:saturate(0.3);
+}
+
+/* 💡 ACTIVE — buzzing neon sign that hovers */
+.dice.active{
+cursor:pointer;
+animation:
+neonHover 1.6s ease-in-out infinite,
+neonBuzz 0.9s steps(2) infinite;
+}
+
+.dice.active:active{ transform:scale(0.9); }
+
+@keyframes neonHover{
+0%,100%{ transform:translateY(0); }
+50%{ transform:translateY(-14px); }
+}
+
+@keyframes neonBuzz{
+0%,100%{ box-shadow:inset 0 0 0 0.45em #fff, 0 0 0 6px #ffc312, 0 0 30px 8px #ffc312; }
+50%{ box-shadow:inset 0 0 0 0.45em #fff, 0 0 0 6px #ff7f11, 0 0 30px 8px #ff7f11; }
+}
+
+/* 🎲 BIG DICE STAGE (over the field, 3D) */
+#diceStage{
+position:fixed;
+z-index:5000;
+display:none;
+align-items:center;
+justify-content:center;
+border-radius:16px;
+background:rgba(40,46,58,0.5);
+pointer-events:none;
+perspective:900px;
+}
+
+#diceStage.show{ display:flex; }
+
+#bigWrap{
+display:flex;
+flex-direction:column;
+align-items:center;
+transform-style:preserve-3d;
+}
+
+.dice.big{ font-size:30px; }
+
+.dice.big.rolling, .dice.big.landed{
+box-shadow:inset 0 0 0 0.45em #fff, 0 0 0 8px #ffc312, 0 0 60px 14px rgba(255,195,18,0.8);
+}
+
+.dice.big.landed{
+animation:neonPop 0.6s cubic-bezier(.3,1.6,.5,1);
+}
+
+@keyframes neonPop{
+0%{ transform:scale(1); }
+40%{ transform:scale(1.18); }
+100%{ transform:scale(1); }
+}
+
+#rollLabel{
+margin-top:22px;
+padding:10px 34px;
+border-radius:20px;
+background:white;
+border:5px solid #ffc312;
+font-size:52px;
+font-weight:bold;
+color:#2f3542;
+box-shadow:0 0 0 4px #ff7f11 inset, 0 8px 20px rgba(0,0,0,0.35);
+opacity:0;
+transform:scale(0.5);
+transition:opacity 0.25s, transform 0.4s cubic-bezier(.3,1.6,.5,1);
+}
+
+#rollLabel.show{ opacity:1; transform:scale(1); }
+
+#rollLabel b{
+color:#ff7f11;
+font-size:1.4em;
+}
+
+
+/* ===================================================== */
+/* 🏙️ THE CITY */
+/* ===================================================== */
+
+#racetrack{
+display:grid;
+grid-template-columns:repeat(9, 105px);
+grid-template-rows:repeat(6, 105px);
+gap:0;
+justify-content:center;
+margin-top:14px;
+position:relative;
+border-radius:16px;
+box-shadow:0 10px 30px rgba(29,27,75,0.35);
+}
+
+.tile{
+width:105px;
+height:105px;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+box-sizing:border-box;
+}
+
+/* 🏙️ CITY BLOCKS — lilac pavement with lit windows twinkling */
+.tile.block{
+border:2px solid rgba(255,255,255,0.95);
+border-radius:12px;
+overflow:hidden;
+}
+
+.tile.block.park{
+background:
+radial-gradient(circle at 25% 30%, rgba(255,255,255,0.25), transparent 50%),
+linear-gradient(145deg,#8fe08a,#5cc463);
+}
+
+.tile.block.plaza{
+background:linear-gradient(145deg,#fff1cc,#ffe0a3);
+}
+
+.tile.block.plaza::before{
+content:"";
+position:absolute;
+inset:0;
+pointer-events:none;
+background:
+linear-gradient(90deg, rgba(190,140,60,0.18) 1px, transparent 1px) 0 0 / 26px 26px,
+linear-gradient(0deg, rgba(190,140,60,0.18) 1px, transparent 1px) 0 0 / 26px 26px;
+}
+
+.tile.block.park::before{
+content:"";
+position:absolute;
+inset:0;
+pointer-events:none;
+background:
+radial-gradient(circle, rgba(255,255,255,0.55) 1.2px, transparent 2px),
+radial-gradient(circle, rgba(255,240,120,0.6) 1.2px, transparent 2px);
+background-size:30px 30px, 44px 44px;
+background-position:6px 8px, 20px 26px;
+animation:roadGlitter 3.5s ease-in-out infinite;
+animation-delay:var(--td,0s);
+}
+
+.deco{
+position:relative;
+z-index:1;
+font-size:78px;
+line-height:1;
+animation:cityLights 3s ease-in-out infinite;
+}
+
+/* windows flicker on and off like night lights */
+@keyframes cityLights{
+0%,100%{ filter:brightness(1) drop-shadow(0 0 0 rgba(255,225,77,0)); transform:translateY(0); }
+40%{ filter:brightness(1.15) drop-shadow(0 0 10px rgba(255,225,77,0.9)); transform:translateY(-3px); }
+55%{ filter:brightness(0.95); }
+70%{ filter:brightness(1.2) drop-shadow(0 0 14px rgba(255,195,18,0.7)); transform:translateY(0); }
+}
+
+/* 🌃 DARK GLITTER ROAD */
+.tile.road{
+background:linear-gradient(145deg,#454c5c,#2f3542);
+overflow:hidden;
+box-shadow:inset 0 0 0 3px rgba(255,255,255,0.55);     /* white edge lines */
+}
+
+.tile.road::before{
+content:"";
+position:absolute;
+inset:0;
+pointer-events:none;
+background:
+radial-gradient(circle, rgba(255,255,255,0.35) 0.8px, transparent 1.4px),
+radial-gradient(circle, rgba(0,0,0,0.35) 0.8px, transparent 1.4px);
+background-size:14px 14px, 18px 18px;
+background-position:0 0, 7px 9px;
+opacity:0.6;
+}
+
+@keyframes roadGlitter{
+0%,100%{ opacity:0.35; }
+50%{ opacity:0.95; }
+}
+
+/* lane lines — yellow on the main road */
+.lane{
+position:absolute;
+z-index:1;
+pointer-events:none;
+--lc:#ffc312;
+}
+
+.lane.neon{ --lc:#ffffff; }
+
+.lane-l, .lane-r{
+top:50%;
+height:6px;
+margin-top:-3px;
+width:50%;
+}
+
+.lane-l{ left:0; background:repeating-linear-gradient(90deg, var(--lc) 0 14px, transparent 14px 26px); }
+.lane-r{ right:0; background:repeating-linear-gradient(270deg, var(--lc) 0 14px, transparent 14px 26px); }
+
+.lane-t, .lane-b{
+left:50%;
+width:6px;
+margin-left:-3px;
+height:50%;
+}
+
+.lane-t{ top:0; background:repeating-linear-gradient(180deg, var(--lc) 0 14px, transparent 14px 26px); }
+.lane-b{ bottom:0; background:repeating-linear-gradient(0deg, var(--lc) 0 14px, transparent 14px 26px); }
+
+.lane.neon{ filter:none; }
+
+/* 🛣️ SIDE ROADS — glowing pink edges */
+.tile.side{
+border-radius:10px;
+background:
+linear-gradient(145deg,#454c5c,#2f3542) padding-box,
+repeating-linear-gradient(45deg, #ff7f11 0 8px, #ffffff 8px 16px) border-box;
+border:6px solid transparent;
+box-shadow:none;
+}
+
+.tile.side.lit{
+animation:sideLit 0.4s ease-in-out infinite alternate;
+}
+
+.tile.side:not(.lit){
+filter:grayscale(0.85) brightness(1.15);
+opacity:0.45;
+}
+
+@keyframes sideLit{
+from{ filter:brightness(1); box-shadow:0 0 0 0 rgba(255,195,18,0); }
+to{ filter:brightness(1.3); box-shadow:0 0 22px 6px rgba(255,195,18,0.9); }
+}
+
+/* ⭐ special tiles */
+.special-icon{
+position:relative;
+z-index:2;
+font-size:60px;
+line-height:1;
+}
+
+.tile.balloon .special-icon{ animation:balloonBob 2.2s ease-in-out infinite; }
+.tile.rocket .special-icon{ animation:rocketRumble 1.6s ease-in-out infinite; filter:drop-shadow(0 0 10px #ff8a1f); }
+.tile.tornado .special-icon{ animation:twirl 1.4s linear infinite; filter:drop-shadow(0 0 10px #4fc3f7); }
+.tile.traffic .special-icon{ animation:trafficBlink 1.5s steps(1) infinite; }
+.tile.short .special-icon{ font-size:54px; filter:drop-shadow(0 0 10px #ff7f11); animation:balloonBob 1.8s ease-in-out infinite; }
+
+.tile.balloon .special-icon{ filter:drop-shadow(0 0 10px #ff4d6d); }
+
+@keyframes balloonBob{
+0%,100%{ transform:translateY(2px) rotate(-5deg); }
+50%{ transform:translateY(-7px) rotate(5deg); }
+}
+
+@keyframes rocketRumble{
+0%,100%{ transform:translate(0,0) rotate(-45deg); }
+10%{ transform:translate(-2px,1px) rotate(-45deg); }
+20%{ transform:translate(2px,-1px) rotate(-45deg); }
+30%{ transform:translate(0,0) rotate(-45deg); }
+60%{ transform:translate(0,-6px) rotate(-45deg); }
+}
+
+@keyframes twirl{
+from{ transform:rotate(0deg); }
+to{ transform:rotate(360deg); }
+}
+
+@keyframes trafficBlink{
+0%{ filter:drop-shadow(0 0 10px #ff4757); }
+33%{ filter:drop-shadow(0 0 12px #ffc312); }
+66%{ filter:drop-shadow(0 0 14px #2ecc71); }
+}
+
+.short-badge{
+position:absolute;
+z-index:3;
+right:6px;
+top:6px;
+background:#ff7f11;
+color:white;
+font-size:20px;
+font-weight:bold;
+padding:1px 8px;
+border-radius:10px;
+border:2px solid white;
+}
+
+/* 🚦 START — blinking traffic light */
+.tile.start{
+border-radius:12px;
+background:linear-gradient(145deg,#ff3b3b,#e3001b);
+box-shadow:inset 0 0 0 4px #ffffff, 0 0 18px rgba(255,40,40,0.75);
+}
+
+.start-sign{
+position:relative;
+z-index:2;
+font-size:66px;
+line-height:1;
+animation:goBlink 1.2s ease-in-out infinite;
+transform-origin:20% 90%;
+}
+
+@keyframes goBlink{
+0%{ transform:rotate(-6deg); }
+50%{ transform:rotate(6deg); }
+}
+
+.go-badge{
+position:absolute;
+z-index:3;
+bottom:4px;
+left:50%;
+transform:translateX(-50%);
+background:#ffc312;
+color:#2f3542;
+font-size:16px;
+font-weight:bold;
+padding:0 8px;
+border-radius:8px;
+box-shadow:0 0 0 2px #2f3542;
+}
+
+/* 🏆 FINISH — sweeping searchlights + gold */
+.tile.end{
+overflow:visible;
+z-index:2;
+border-radius:12px;
+box-shadow:inset 0 0 0 4px #ffd84d;
+animation:goldTile 1.6s ease-in-out infinite;
+}
+
+.trophy{
+position:relative;
+z-index:3;
+font-size:88px;
+line-height:1;
+filter:drop-shadow(0 0 10px #fff3a0) drop-shadow(0 0 22px #ffd000);
+animation:trophyShine 1.6s ease-in-out infinite;
+}
+
+.beam{
+position:absolute;
+z-index:1;
+left:50%;
+bottom:50%;
+width:40px;
+height:100px;
+margin-left:-20px;
+transform-origin:50% 100%;
+background:linear-gradient(0deg, rgba(255,240,150,0.85), rgba(255,240,150,0));
+clip-path:polygon(40% 100%, 60% 100%, 100% 0, 0 0);
+pointer-events:none;
+}
+
+.beam.b1{ animation:sweep 3s ease-in-out infinite; }
+.beam.b2{ animation:sweep 3s ease-in-out infinite reverse; background:linear-gradient(0deg, rgba(255,127,17,0.7), rgba(255,127,17,0)); }
+
+@keyframes sweep{
+0%,100%{ transform:rotate(-40deg); }
+50%{ transform:rotate(40deg); }
+}
+
+@keyframes goldTile{
+0%,100%{ box-shadow:inset 0 0 0 4px #ffd84d, 0 0 14px 4px rgba(255,208,0,0.8); }
+50%{ box-shadow:inset 0 0 0 4px #ffd84d, 0 0 34px 12px rgba(255,208,0,1); }
+}
+
+@keyframes trophyShine{
+0%,100%{ transform:scale(1); }
+50%{ transform:scale(1.08); }
+}
+
+/* 🎯 landing — neon rings */
+.tile.landed-glow{
+overflow:visible;
+z-index:3;
+border-radius:12px;
+animation:landGlow 0.7s ease-in-out 2;
+}
+
+@keyframes landGlow{
+0%,100%{ box-shadow:0 0 0 4px #ffffff, 0 0 0 10px #ffc312, 0 0 30px 14px rgba(255,195,18,0.6); }
+50%{ box-shadow:0 0 0 6px #ffc312, 0 0 0 14px #ff7f11, 0 0 60px 26px rgba(255,127,17,0.55); }
+}
+
+.spotlight{
+position:absolute;
+z-index:8;
+width:130px;
+height:260px;
+pointer-events:none;
+transform:translate(-50%,-100%);
+margin-top:52px;
+background:linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,220,0.55));
+clip-path:polygon(42% 0, 58% 0, 100% 100%, 0 100%);
+animation:spotIn 1.5s ease forwards;
+}
+
+@keyframes spotIn{
+0%{ opacity:0; }
+20%{ opacity:1; }
+80%{ opacity:1; }
+100%{ opacity:0; }
+}
+
+
+/* ===================================================== */
+/* 🦸 HEROES */
+/* ===================================================== */
+
+#carLayer{
+position:absolute;
+inset:0;
+pointer-events:none;
+z-index:10;
+}
+
+.car{
+position:absolute;
+z-index:10;
+transform:translate(-50%,-50%) scale(var(--s,1));
+transition:left 0.4s ease-in-out, top 0.4s ease-in-out, transform 0.3s;
+}
+
+.car-fx{ display:inline-block; }
+
+.car-emoji{
+display:inline-block;
+font-size:90px;
+line-height:1;
+animation:floatBounce 2.6s ease-in-out infinite;
+}
+
+@keyframes floatBounce{
+0%,100%{ transform:translateY(0); }
+50%{ transform:translateY(-6px); }
+}
+
+/* 👉 whose turn — on top, neon ring underneath */
+.car.my-turn{ z-index:30; }
+
+.car.my-turn::before{
+content:"";
+position:absolute;
+left:50%;
+bottom:-4px;
+width:84px;
+height:26px;
+margin-left:-42px;
+border-radius:50%;
+border:4px solid #ffc312;
+box-shadow:0 0 12px #ffc312, inset 0 0 10px #ff7f11;
+animation:ringPulse 1s ease-in-out infinite;
+}
+
+@keyframes ringPulse{
+0%,100%{ transform:scale(0.85); border-color:#ffc312; }
+50%{ transform:scale(1.1); border-color:#ff7f11; }
+}
+
+.car.my-turn .car-emoji{
+filter:drop-shadow(0 0 6px #fff) drop-shadow(0 0 14px #ffc312);
+animation:floatBounce 1s ease-in-out infinite;
+}
+
+.car.finished .car-emoji{ filter:drop-shadow(0 0 10px #ffd000); }
+
+.car.turbo .car-emoji{
+filter:drop-shadow(0 0 10px #ff7f11) drop-shadow(0 0 22px #ffc312) brightness(1.2);
+}
+
+/* ✦ rising neon sparks */
+.rise-spark{
+position:absolute;
+z-index:31;
+width:9px;
+height:9px;
+border-radius:50%;
+pointer-events:none;
+transform:translate(-50%,-50%);
+animation:riseUp 1.5s ease-out forwards;
+}
+
+@keyframes riseUp{
+0%{ transform:translate(-50%,-50%) scale(0.5); opacity:0; }
+20%{ opacity:1; }
+100%{ transform:translate(calc(-50% + var(--mx,0px)), calc(-50% - 80px)) scale(1.2); opacity:0; }
+}
+
+/* ⚡ speed streak */
+.speed-streak{
+--c:#ffc312;
+position:absolute;
+z-index:9;
+height:8px;
+margin-top:-4px;
+transform-origin:0 50%;
+border-radius:6px;
+pointer-events:none;
+background:linear-gradient(90deg, rgba(0,0,0,0), var(--c));
+box-shadow:0 0 12px var(--c);
+animation:streakFade 0.7s ease-out forwards;
+}
+
+@keyframes streakFade{
+0%{ opacity:1; }
+100%{ opacity:0; }
+}
+
+/* 🚦 piano lights on the road */
+.tile.keylight{ z-index:4; overflow:visible; }
+.tile.kl-red{ box-shadow:inset 0 0 0 6px #ff4757, 0 0 30px 10px rgba(255,71,87,0.9); filter:brightness(1.35); }
+.tile.kl-amber{ box-shadow:inset 0 0 0 6px #ffc312, 0 0 30px 10px rgba(255,195,18,0.9); filter:brightness(1.35); }
+.tile.kl-green{ box-shadow:inset 0 0 0 6px #2ecc71, 0 0 30px 10px rgba(46,204,113,0.9); filter:brightness(1.35); }
+.tile.kl-final{ animation:finalKey 0.35s ease-in-out infinite alternate; }
+
+@keyframes finalKey{
+from{ filter:brightness(1.2); transform:scale(1); }
+to{ filter:brightness(1.6); transform:scale(1.08); }
+}
+
+.note-pop{
+position:absolute;
+z-index:30;
+font-size:34px;
+line-height:1;
+pointer-events:none;
+transform:translate(-50%,-50%);
+animation:popEmoji 0.8s ease-out forwards;
+}
+
+@keyframes popEmoji{
+0%{ transform:translate(-50%,-50%) scale(0.3); opacity:1; }
+50%{ transform:translate(-50%,-90%) scale(1.2); opacity:1; }
+100%{ transform:translate(-50%,-130%) scale(0.8); opacity:0; }
+}
+
+.move-tag{
+position:absolute;
+z-index:35;
+padding:2px 16px;
+border-radius:16px;
+background:white;
+font-size:46px;
+font-weight:bold;
+line-height:1.1;
+pointer-events:none;
+transform:translate(-50%,-50%);
+box-shadow:0 6px 14px rgba(0,0,0,0.3);
+animation:tagPop 0.5s cubic-bezier(.3,1.6,.5,1);
+}
+
+.move-tag.fwd{ color:#1e9e55; border:4px solid #2ecc71; }
+.move-tag.back{ color:#e8232a; border:4px solid #ff4757; }
+
+@keyframes tagPop{
+from{ transform:translate(-50%,-50%) scale(0.3); }
+to{ transform:translate(-50%,-50%) scale(1); }
+}
+
+/* 🎈 balloon tied on */
+.tied-balloon{
+position:absolute;
+left:50%;
+top:-70px;
+font-size:64px;
+transform:translateX(-50%);
+animation:balloonBob 1s ease-in-out infinite;
+}
+
+.tied-balloon::after{
+content:"";
+position:absolute;
+left:50%;
+top:58px;
+width:2px;
+height:34px;
+background:#555;
+}
+
+/* 🚀 rocket under the hero */
+.under-rocket{
+position:absolute;
+left:50%;
+bottom:-36px;
+font-size:56px;
+transform:translateX(-50%) rotate(-45deg);
+filter:drop-shadow(0 0 10px #ff8a1f);
+}
+
+.countdown{
+position:absolute;
+z-index:40;
+font-size:64px;
+font-weight:bold;
+color:#ff7f11;
+-webkit-text-stroke:3px white;
+paint-order:stroke fill;
+transform:translate(-50%,-50%);
+animation:countPop 0.5s ease-out forwards;
+}
+
+@keyframes countPop{
+0%{ transform:translate(-50%,-50%) scale(0.4); opacity:1; }
+60%{ transform:translate(-50%,-50%) scale(1.3); opacity:1; }
+100%{ transform:translate(-50%,-50%) scale(1); opacity:0; }
+}
+
+.smoke-puff{
+position:absolute;
+z-index:9;
+width:40px;
+height:40px;
+border-radius:50%;
+pointer-events:none;
+background:radial-gradient(circle, #ffffff 0 25%, #c9cedb 55%, rgba(150,158,175,0) 72%);
+transform:translate(-50%,-50%);
+animation:puff 0.9s ease-out forwards;
+}
+
+@keyframes puff{
+0%{ transform:translate(-50%,-50%) scale(0.4); opacity:0.9; }
+100%{ transform:translate(-50%,-50%) scale(2.2); opacity:0; }
+}
+
+.trail-emoji, .pop-big{
+position:absolute;
+z-index:12;
+pointer-events:none;
+line-height:1;
+transform:translate(-50%,-50%);
+}
+
+.trail-emoji{
+font-size:30px;
+animation:trailFade 0.7s ease-out forwards;
+}
+
+@keyframes trailFade{
+0%{ transform:translate(-50%,-50%) scale(1); opacity:1; }
+100%{ transform:translate(-50%,-20%) scale(0.4); opacity:0; }
+}
+
+.pop-big{
+font-size:110px;
+animation:popBig 0.6s ease-out forwards;
+}
+
+@keyframes popBig{
+0%{ transform:translate(-50%,-50%) scale(0.3); opacity:1; }
+60%{ transform:translate(-50%,-50%) scale(1.2); opacity:1; }
+100%{ transform:translate(-50%,-50%) scale(1.4); opacity:0; }
+}
+
+.shock-ring{
+position:absolute;
+z-index:8;
+width:60px;
+height:60px;
+border-radius:50%;
+border:8px solid #ff8a1f;
+box-shadow:0 0 16px #ff8a1f;
+pointer-events:none;
+transform:translate(-50%,-50%);
+animation:shock 0.8s ease-out forwards;
+}
+
+@keyframes shock{
+0%{ transform:translate(-50%,-50%) scale(0.3); opacity:1; }
+100%{ transform:translate(-50%,-50%) scale(4); opacity:0; }
+}
+
+/* 🌪️ tornado */
+.twister{
+position:absolute;
+z-index:20;
+font-size:150px;
+line-height:1;
+pointer-events:none;
+transform:translate(-50%,-62%);
+filter:drop-shadow(0 0 14px #2ecc71);
+animation:twisterIn 0.5s ease-out, twisterWobble 0.5s ease-in-out infinite alternate;
+}
+
+.twister{
+transition:font-size 0.45s cubic-bezier(.3,1.4,.5,1);
+}
+
+.twister.huge{
+font-size:260px;                /* a bit bigger while carrying the hero */
+}
+
+.twister.leave{
+animation:twisterOut 0.7s ease-in forwards;
+}
+
+@keyframes twisterIn{
+from{ transform:translate(-50%,-62%) scale(0.2); opacity:0; }
+to{ transform:translate(-50%,-62%) scale(1); opacity:1; }
+}
+
+@keyframes twisterWobble{
+from{ transform:translate(-54%,-62%) rotate(-6deg); }
+to{ transform:translate(-46%,-62%) rotate(6deg); }
+}
+
+@keyframes twisterOut{
+to{ transform:translate(-50%,-200%) scale(0.3); opacity:0; }
+}
+
+.debris{
+position:absolute;
+z-index:21;
+font-size:30px;
+line-height:1;
+pointer-events:none;
+transform:translate(-50%,-50%);
+animation:debrisFly 0.9s ease-out forwards;
+}
+
+@keyframes debrisFly{
+0%{ transform:translate(-50%,-50%) rotate(0deg); opacity:1; }
+100%{ transform:translate(calc(-50% + var(--x)), calc(-50% + var(--y))) rotate(540deg); opacity:0; }
+}
+
+
+
+
+
+
+/* ===================================================== */
+/* 🪧 SPECIAL POPUP — white box, neon double border */
+/* ===================================================== */
+
+#fieldOverlay{
+position:fixed;
+z-index:4500;
+display:none;
+align-items:center;
+justify-content:center;
+pointer-events:none;
+border-radius:16px;
+background:rgba(40,46,58,0.45);
+}
+
+#fieldOverlay.show{ display:flex; }
+#fieldOverlay.hide .sp-box, #fieldOverlay.hide .sp-rays{ animation:spOut 0.3s ease-in forwards; }
+
+.sp-box{
+position:relative;
+z-index:1;
+background:white;
+border-radius:26px;
+padding:20px 60px 26px;
+text-align:center;
+border:6px solid #ffc312;
+box-shadow:0 0 0 6px #ff7f11, 0 0 30px #ffc312, 0 14px 40px rgba(0,0,0,0.4);
+animation:spIn 0.5s cubic-bezier(.3,1.6,.5,1);
+}
+
+.sp-rays{
+position:absolute;
+left:50%;
+top:50%;
+width:620px;
+height:620px;
+z-index:0;
+border-radius:50%;
+-webkit-mask:radial-gradient(circle, #000 25%, transparent 68%);
+mask:radial-gradient(circle, #000 25%, transparent 68%);
+animation:raysSpin 3s linear infinite;
+}
+
+.sp-rays.balloon{ background:repeating-conic-gradient(#ff4d6d 0deg 10deg, #ffffff 10deg 20deg, transparent 20deg 30deg); }
+.sp-rays.rocket{ background:repeating-conic-gradient(#ff8a1f 0deg 9deg, #ffe14d 9deg 18deg, transparent 18deg 30deg); }
+.sp-rays.tornado{ background:repeating-conic-gradient(#4fc3f7 0deg 8deg, #ffffff 8deg 16deg, transparent 16deg 30deg); animation-duration:1s; }
+.sp-rays.short{ background:repeating-conic-gradient(#ff7f11 0deg 10deg, #ffffff 10deg 20deg, transparent 20deg 30deg); }
+.sp-rays.traffic{ background:repeating-conic-gradient(#ff4757 0deg 10deg, #ffc312 10deg 20deg, #2ecc71 20deg 30deg, transparent 30deg 40deg); }
+
+@keyframes raysSpin{
+from{ transform:translate(-50%,-50%) rotate(0deg); }
+to{ transform:translate(-50%,-50%) rotate(360deg); }
+}
+
+.sp-icon{
+font-size:110px;
+line-height:1.05;
+animation:balloonBob 0.9s ease-in-out infinite;
+}
+
+.sp-title{
+font-size:54px;
+font-weight:bold;
+color:#2f3542;
+}
+
+.sp-steps, .sp-line{
+font-size:40px;
+font-weight:bold;
+color:#2f3542;
+}
+
+.sp-line{
+font-size:60px;
+margin-top:4px;
+}
+
+.sp-num{
+font-size:96px;
+color:#ff7f11;
+-webkit-text-stroke:3px white;
+paint-order:stroke fill;
+text-shadow:0 0 14px rgba(255,127,17,0.6);
+display:inline-block;
+animation:numPop 0.6s ease-in-out infinite alternate;
+}
+
+.sp-num.reveal{
+animation:numReveal 0.5s cubic-bezier(.3,1.8,.5,1), numPop 0.6s ease-in-out 0.5s infinite alternate;
+}
+
+@keyframes numReveal{
+0%{ transform:scale(0.4); }
+100%{ transform:scale(1.15); }
+}
+
+@keyframes numPop{
+from{ transform:scale(1) rotate(-4deg); }
+to{ transform:scale(1.15) rotate(4deg); }
+}
+
+@keyframes spIn{
+0%{ transform:scale(0.3); opacity:0; }
+100%{ transform:scale(1); opacity:1; }
+}
+
+@keyframes spOut{
+to{ transform:scale(0.3); opacity:0; }
+}
+
+
+/* ===================================================== */
+/* 🎊 BURSTS, RINGS, FIREWORKS, CONFETTI */
+/* ===================================================== */
+
+.burst-dot{
+position:fixed;
+z-index:9998;
+pointer-events:none;
+border-radius:50%;
+transform:translate(-50%,-50%);
+animation:dotBurst 1s cubic-bezier(.15,.8,.3,1) forwards;
+}
+
+.burst-dot.emoji{
+background:none !important;
+box-shadow:none !important;
+border-radius:0;
+line-height:1;
+}
+
+@keyframes dotBurst{
+0%{ transform:translate(-50%,-50%) scale(0.3); opacity:1; }
+65%{ opacity:1; }
+100%{ transform:translate(calc(-50% + var(--x)), calc(-50% + var(--y) + 40px)) scale(1); opacity:0; }
+}
+
+.neon-ring{
+position:fixed;
+z-index:9998;
+width:120px;
+height:120px;
+border-radius:50%;
+border:6px solid #ffc312;
+pointer-events:none;
+transform:translate(-50%,-50%);
+animation:ringOut 0.9s ease-out forwards;
+}
+
+@keyframes ringOut{
+0%{ transform:translate(-50%,-50%) scale(0.5); opacity:1; }
+100%{ transform:translate(-50%,-50%) scale(4.5); opacity:0; }
+}
+
+.spark{
+position:fixed;
+z-index:9998;
+width:8px;
+height:8px;
+border-radius:50%;
+pointer-events:none;
+transform:translate(-50%,-50%);
+animation:sparkFly 1.3s cubic-bezier(.1,.8,.3,1) forwards;
+}
+
+@keyframes sparkFly{
+0%{ transform:translate(-50%,-50%) scale(1.3); opacity:1; }
+60%{ transform:translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(1); opacity:1; }
+100%{ transform:translate(calc(-50% + var(--x)), calc(-50% + var(--y) + 60px)) scale(0.3); opacity:0; }
+}
+
+.confetti-piece{
+position:fixed;
+top:-30px;
+z-index:9997;
+pointer-events:none;
+border-radius:2px;
+animation:confettiFall 2.5s linear forwards;
+}
+
+@keyframes confettiFall{
+0%{ transform:translate(0,0) rotate(0deg); }
+100%{ transform:translate(var(--drift,0), 105vh) rotate(var(--spin,720deg)); }
+}
+
+
+/* ===================================================== */
+/* 🪩 POPUPS */
+/* ===================================================== */
+
+.popup{
+position:fixed;
+inset:0;
+background:rgba(40,46,58,0.7);
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:9999;
+}
+
+.popup-content{
+background:white;
+border-radius:24px;
+padding:30px;
+width:90%;
+max-width:850px;
+text-align:center;
+overflow-y:auto;
+max-height:90vh;
+}
+
+#playerCountBtns button, #animalChoices button{
+font-size:4.2em;
+margin:5px;
+padding:8px 14px;
+border-radius:14px;
+border:none;
+cursor:pointer;
+font-family:inherit;
+}
+
+#playerCountBtns button.selected,
+#animalChoices button.selected{
+background-color:#fff3cc;
+outline:4px solid #ffc312;
+box-shadow:0 0 14px #ffc312;
+}
+
+#animalChoices button:disabled{
+opacity:0.3;
+cursor:not-allowed;
+}
+
+#startRaceBtn, .results-btns button{
+background-color:#28a745;
+color:white;
+font-family:inherit;
+font-size:1.8em;
+border:none;
+border-radius:15px;
+margin:20px 8px 0;
+padding:12px 25px;
+box-shadow:0 6px #1d7c33;
+cursor:pointer;
+transition:transform 0.15s ease;
+}
+
+#startRaceBtn:disabled{
+background:#bbb;
+box-shadow:0 6px #999;
+cursor:not-allowed;
+}
+
+#startRaceBtn:hover:not(:disabled), .results-btns button:hover{ transform:scale(1.05); }
+
+.finish-toast{ background:rgba(40,46,58,0.5); }
+
+.toast-box{
+max-width:460px;
+border:6px solid #ffc312;
+box-shadow:0 0 0 6px #ff7f11, 0 0 40px #ffc312;
+animation:toastPop 0.5s cubic-bezier(.3,1.6,.5,1);
+}
+
+.toast-car{
+font-size:180px;
+line-height:1.1;
+animation:floatBounce 0.8s ease-in-out infinite;
+}
+
+.toast-text{
+font-size:52px;
+font-weight:bold;
+color:#2f3542;
+}
+
+@keyframes toastPop{
+0%{ transform:scale(0.4); opacity:0; }
+100%{ transform:scale(1); opacity:1; }
+}
+
+.popup-content.results{
+max-width:1000px;
+max-height:96vh;
+padding:20px 30px;
+}
+
+.results{
+border:6px solid #ffc312;
+box-shadow:0 0 0 6px #ff7f11, 0 0 40px #ffc312;
+}
+
+.results h2{
+font-size:72px;
+margin:0 0 10px;
+color:#2f3542;
+}
+
+.rank-row{
+font-size:100px;
+line-height:1.1;
+margin:4px 0;
+}
+
+/* ===================================================== */
+/* 🏙️ CITY TRACK ENGINE END */
+/* ===================================================== */
+
+
+/* ===================================================== */
+/* 📱 RESPONSIVE */
+/* ===================================================== */
+
+@media (orientation: portrait), (max-width: 1024px){
+
+#game-container{
+flex-direction:column;
+align-items:center;
+}
+
+#left-panel, #right-panel{
+width:95%;
+margin:0 auto;
+}
+
+#diceRow{
+position:static;
+margin-bottom:10px;
+}
+
+.letter-btn{
+width:100px;
+font-size:3rem;
+}
+
+}
